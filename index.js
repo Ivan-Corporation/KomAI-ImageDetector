@@ -1,30 +1,28 @@
-import '@tensorflow/tfjs-backend-cpu';
-import '@tensorflow/tfjs-backend-webgl';
+import "@tensorflow/tfjs-backend-cpu"
+import "@tensorflow/tfjs-backend-webgl"
 
-import * as mobilenet from '@tensorflow-models/mobilenet';
+import * as mobilenet from '@tensorflow-models/mobilenet'
 
-const img = document.getElementById('img');
+const image = document.getElementById('img')
 const version = 2;
-const alpha = 0.5;
+const alpha = 0.5
 
-async function run() {
-  // Load the model.
-  const model = await mobilenet.load({ version, alpha });
+async function imageDetector() {
+    const model = await mobilenet.load({ version, alpha });
 
-  // Classify the image.
-  const predictions = await model.classify(img);
-  console.log('Predictions');
-  console.log(predictions);
+    const predictions = await model.classify(image)
+    console.log('Predictions:')
+    console.log(predictions)
 
-  // Get the logits.
-  const logits = model.infer(img);
-  console.log('Logits');
-  logits.print(true);
 
-  // Get the embedding.
-  const embedding = model.infer(img, true);
-  console.log('Embedding');
-  embedding.print(true);
+    // Logits and embedding
+
+    const logits = model.infer(image)
+    const embedding = model.infer(image, true)
+    console.log('First Logits then Embeddings:')
+    logits.print(true)
+    embedding.print(true)
+
 }
 
-run();
+imageDetector();
