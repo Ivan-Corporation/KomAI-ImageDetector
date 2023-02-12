@@ -1,0 +1,21 @@
+.probabilites-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.probabilites {
+    margin: 5px;
+    padding: 5px 14px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-color: rgba(83, 83, 83, 0.301);
+
+}
+
+.probabilites:hover {
+    filter: drop-shadow(0 0 2em #61dafb);
+}
