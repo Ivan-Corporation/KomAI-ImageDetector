@@ -1,10 +1,13 @@
-# KomAI-ImageDetector
+<div>
 <img src='https://wakatime.com/badge/github/Ivan-Corporation/KomAI-ImageDetector.svg'/>
 <img src='https://img.shields.io/badge/code_style-standard-brightgreen.svg'/>
 <img src='https://img.shields.io/github/stars/Ivan-Corporation/KomAI-ImageDetector?style=social'/>
 <img src='https://img.shields.io/npm/l/easter-break'/>
+</div>
 
-<hr/>
+<h1>KomAI-ImageDetector 🧬</h1>
+
+
 
 
 <img src='./new_version.png'/>
@@ -13,10 +16,6 @@
 
 
 
-
-
-
-<hr/>
 
 <h1>Native verison</h1>
 Just replace image path in index.html on your own picture and see results in <strike>console</strike> your browser

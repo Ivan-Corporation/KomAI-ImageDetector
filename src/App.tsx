@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import tensorflowLogo from "./assets/Tensorflow.png";
@@ -6,8 +7,8 @@ import "./App.css";
 import "./styles/dnd.css";
 import "@tensorflow/tfjs";
 import * as mobileNet from "@tensorflow-models/mobilenet";
-import Probabilities from './components/Probabilities';
-import { Loader } from './components/Loader';
+import Probabilities from "./components/Probabilities";
+import { Loader } from "./components/Loader";
 import { RepositoryMetrics } from "repository-metrics";
 
 function App() {
@@ -62,17 +63,17 @@ function App() {
   return (
     <div className="App">
       <h1 className="title">KomAI - Image Analyzer</h1>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <RepositoryMetrics
-          owner='Ivan-Corporation'
-          repo='KomAI-ImageDetector'
-          theme='dark'
-
+          owner="Ivan-Corporation"
+          repo="KomAI-ImageDetector"
+          theme="dark"
         />
       </div>
       <p className="description">
         Upload any image and artificial intelligence will analyze the <br />
-        probability of finding a certain object on it. <br /> <span style={{ fontWeight: '700' }}> Recommended format 1x1</span>
+        probability of finding a certain object on it. <br />{" "}
+        <span style={{ fontWeight: "700" }}> Recommended format 1x1</span>
       </p>
       <div className="logos">
         <div>
@@ -94,33 +95,37 @@ function App() {
       ) : (
         <div>
           <div>
-
             {/* <input
               type="file"
               onChange={handleUploadChange}
               accept="image/x-png,image/gif,image/jpeg"
             /> */}
           </div>
-          {imageURL && <div>
-            <div className="image-container">
-              <canvas className="classified-image" ref={canvasRef}>
-                <img alt="preview" onLoad={onImageChange} src={imageURL} />
-              </canvas>
-              {!!predictions.length && <Probabilities predictions={predictions} />}
+          {imageURL && (
+            <div>
+              <div className="image-container">
+                <canvas className="classified-image" ref={canvasRef}>
+                  <img alt="preview" onLoad={onImageChange} src={imageURL} />
+                </canvas>
+                {!!predictions.length && (
+                  <Probabilities predictions={predictions} />
+                )}
+              </div>
             </div>
-          </div>
-          }
+          )}
           <div className="image-upload-wrap">
-            <input className="file-upload-input" type='file' onChange={handleUploadChange}
-              accept="image/x-png,image/gif,image/jpeg" />
+            <input
+              className="file-upload-input"
+              type="file"
+              onChange={handleUploadChange}
+              accept="image/x-png,image/gif,image/jpeg"
+            />
             <div className="drag-text">
               <h3>Drag and drop a file or select add Image</h3>
             </div>
           </div>
         </div>
-
       )}
-
     </div>
   );
 }
